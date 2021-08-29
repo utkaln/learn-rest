@@ -1,5 +1,7 @@
 # learn-rest
 
+## Good API Design
+
 #### What is REST?
 > REpresentational State Transfer
 
@@ -39,11 +41,44 @@ Status Code, Header,  Content
 ### Associations
 * It is about consistency of results returned to show relationship between data
 
+### Paging
+* Consider paging for list of data
+* Consider query strings for paging control
+* Example:
+```json
+{
+ "totalResults": 200,
+ "nextPage": "/api/site?page=5",
+ "prevPage": "/api/site?page=3"
+}
+```
+
+### Error Handling
+* Consider - Return status code and error info to help users resolve those, however consider security concerns while disclosing information about error
+* Example: 404 Not Found - Access/ Auth error, 400 - Bad request, validation error
+
+```json
+{
+ "errors":{ 
+   "Name": [
+     "Name field data is required"
+   ]
+ },
+ "title": "Validation Error on input data",
+ "status": 400,
+ "traceId": "012345ABCDE"
+}
+```
 
 ### Caching (HTTP Caching)
-* Use HTTP for caching
-* Send version number in request header to compare if the resource version has changed on server side, Response comes as 304 - Not Modified
-* 
+* Point to Note: Postman usually has an option selected in setting for no-cache header, so it makes explicit request to server to ignore any cache related headers. To enable caching we must disable this option. In real world applications, enabling caching can increase efficiency
+
+
+**HTTP for caching**
+* Send version number in request header to compare if the resource version has changed on server side, Response comes as 304 - Not Modified. This is more like versioning the data returned by calling the API to make it more efficient. The header used is called ```If-Match```
+
+**ETags (Entity Tags)
+* Some kind of unique key to identify if match or not 
 
 ## Best Practices
 * Design your API first, as after release any change to end point would impact consumers
