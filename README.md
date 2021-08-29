@@ -8,6 +8,20 @@
 * Requests are Stateless
 * Requests are Cachable
 * Uniform Interface (URI)
+
+### Different Components of REST API
+> Request
+ > * URI
+ > * Verb
+ > * Headers
+ > * Request Body
+
+> Response
+ > * Status Code
+ > * Headers
+ > * Response Body
+
+
 ### Verbs
 GET | POST | UPDATE | DELETE | PATCH
 
@@ -43,6 +57,7 @@ curl arest.me -i
 * 
 
 ## Best Practices
+* Design your API first, as after release any change to end point would impact consumers
 * Match verbs for intended purpose to make it more readable and manageable and remain consistent
 * Use query string for trivial changes, DO NOT use as data related (e.g. use for sorting, formating etc.)
 * DO NOT use verbs or actions as URIs, use nouns instead (e.g. DO NOT use /getCustomers use /customers)
