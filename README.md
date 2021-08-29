@@ -31,24 +31,13 @@ Verb, URI, Header, Content
 ### Response 
 Status Code, Header,  Content
 
-### Common Commands
-```linux
-# get content from webpage
-curl arest.me
 
-# get only header from webpage
-curl arest.me -I
+### Hypermedia
+* allows results to be self describing thus enabling programmatic navigation.Common practice is \_links with urls to different navigation points
 
-# get header and content from webpage
-curl arest.me -i
-
-```
-### What is Hypermedia
-> allows results to be self describing thus enabling programmatic navigation.Common practice is \_links with urls to different navigation points
-> 
  
 ### Associations
-> It is about consistency of results returned to show relationship between data
+* It is about consistency of results returned to show relationship between data
 
 
 ### Caching (HTTP Caching)
@@ -70,3 +59,16 @@ curl arest.me -i
 * Use wrappers to imply paging, that contains info such as total results, next page url etc. 
 * 
 * 
+
+### Common Commands
+```linux
+# get content from webpage
+curl arest.me
+
+# get only header from webpage
+curl arest.me -I
+
+# get header and content from webpage
+curl arest.me -i
+
+```
