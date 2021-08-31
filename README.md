@@ -77,8 +77,11 @@ Status Code, Header,  Content
 **HTTP for caching**
 * Send version number in request header to compare if the resource version has changed on server side, Response comes as 304 - Not Modified. This is more like versioning the data returned by calling the API to make it more efficient. The header used is called ```If-Match```
 
-**ETags (Entity Tags)
+
+**ETags (Entity Tags)**
 * Some kind of unique key to identify if match or not 
+* Example: The response header sends a series of alpha numeric character, when next request comes it checks for If-Not-Match then put 
+* 
 
 ## Best Practices
 * Design your API first, as after release any change to end point would impact consumers
